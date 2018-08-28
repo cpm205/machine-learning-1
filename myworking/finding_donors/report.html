@@ -12902,7 +12902,8 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <p>**Answer: As can be seen from Performance Metrics above, AdaBoost has the highest score.</p>
 <ol>
 <li>Among those 3 models, AdaBoost has the highest F score on the testing when 100% of the training data is used.</li>
-<li>Although the AdaBoost is slower to train than other 2 models, but it's still under 1 seconds when 100% of the training data is used, it's acceptable since model accuracy is top priority.
+<li>Although the AdaBoost is slower to train than other 2 models, but it's still around 1.75 seconds when 100% of the training data is used, it's acceptable since model accuracy is top priority. 0.08 prediction time is good enought</li>
+<li>AdaBoost algorithm is slower to train than other 2 algorithms, but it performs the best on the testing dataset in terms of both accuracy and F-score, since we are more interested in maximizing the number of accurately classified people that make more than 50K, AdaBoost seems to be the most appropriate in this case.
 **</li>
 </ol>
 
@@ -12927,15 +12928,9 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>**Answer: 
-Since this dataset has a lot of features, I decide to use AdaBoost model, because this model allow us to train some weak learner models, and then join them together to get a better final model. To use AdaBoost:</p>
-<ol>
-<li>Add weight to each training data, and then train the first weak learner model.</li>
-<li>Weight any misclassified data, then train the second weak learner.</li>
-<li>Repeat step 2 till the weak model has better accuracy.</li>
-<li>Use weight formula to find out how well these weak learner models are.</li>
-<li>Final step, combine all these weak learner models togther to get the final model. By this way, it improves the accuracy of the final model.
-** </li>
-</ol>
+AdaBoost is an ensemble learning algorithm which takes multiple simple or weak learners and combines them together. The goal is to combine those weak learners to create a single strong learner. A weak learner classifies with accuracy barely above chance, a strong learner has much higher accuracy and it's more capable of predicting accurately on unseen data than each of the individual weak learner.</p>
+<p>This algorithm is trained iteratively. During each training iteration, the algorithm attempts to correctly classify the training data. Based on how well it performed during the iteration, the algorithm assigns higher weights to all misclassified data, so those data have a higher change of being picked in the next iteration. On the next training iteration, the algorithm focuses on previous missclassified data and tries to classify them correctly, then based on the result of this training iteration, the algorithm assigns higher weight to newly misclassified data again. This process is repeated for a number of times in attampt to find the set of weighted weak learners that can be combined as a single strong learner to perform best prediction on unseen data.</p>
+<p>**</p>
 
 </div>
 </div>
